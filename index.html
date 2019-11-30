@@ -1,1 +1,61 @@
-<h1>Placeholder</h1>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Deed Poll Generator</title>
+  </head>
+  <body>
+    <h1>Deed Poll Creator</h1>
+
+    <span><em>This website is in beta 🔥🔥🔥</em></span>
+
+    <form id="user-info">
+      <section>
+        <h2>Your details</h2>
+
+        <label for="old-name">Old name:</label>
+        <input type="text" name="old-name" id="old-name" required>
+
+        <label for="new-name">New name:</label>
+        <input type="text" name="new-name" id="new-name" required>
+
+        <label for="address">Address:</label>
+        <input type="text" name="address" id="address" required>
+      </section>
+
+      <section>
+        <h2>Witness #1's details</h2>
+
+        <label for="witness-1-name">Name:</label>
+        <input type="text" name="witness-1-name" id="witness-1-name" required>
+
+        <label for="witness-1-address">Address:</label>
+        <input type="text" name="witness-1-address" id="witness-1-address" required>
+      </section>
+
+      <section>
+        <h2>Witness #2's details</h2>
+
+        <label for="witness-2-name">Name:</label>
+        <input type="text" name="witness-2-name" id="witness-2-name" required>
+
+        <label for="witness-2-address">Address:</label>
+        <input type="text" name="witness-2-address" id="witness-2-address" required>
+      </section>
+
+      <section>
+        <h2>Date</h2>
+        
+        <label for="date">Date you plan to sign the deed poll:</label>
+        <input type="date" id="date" name="date" value="2019-10-05" min="2015-01-01" max="2511-05-07" required>
+      </section>
+
+      <input type="submit" value="Create">
+    </form>
+
+    <div>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js" integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/" crossorigin="anonymous" async></script>
+      <script src="assets/scripts.js" async></script>
+    </div>
+  </body>
+</html>
