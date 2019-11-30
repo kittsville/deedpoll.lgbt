@@ -1,8 +1,30 @@
 getFormValue = (e, fieldName) => e.srcElement.elements[fieldName].value;
 
+getDateSuffix = day => {
+  if (day > 3 && day < 21) return 'th';
+  switch (day % 10) {
+    case 1: return "st";
+    case 2: return "nd";
+    case 3: return "rd";
+    default: return "th";
+  }
+}
+
+getPrettyDate = (e, fieldName) => {
+  const months = ["January", "February", "March", "April", "May", "June", "July",
+  "August", "September", "October", "November", "December"];
+  const date = new Date(getFormValue(e, fieldName));
+
+  const day = date.getDate(),
+  month = months[date.getMonth()],
+  year = date.getFullYear();
+
+  return `${day}${getDateSuffix(day)} ${month} ${year}`;
+}
+
 getDeedPollText = e => `I ${getFormValue(e, "old-name")} of ${getFormValue(e, "address")} have given up my name ${getFormValue(e, "old-name")} and have adopted for all purposes the name ${getFormValue(e, "new-name")}.
 
-Signed as a deed on ${getFormValue(e, "date")} as ${getFormValue(e, "old-name")} and ${getFormValue(e, "new-name")} in the presence of ${getFormValue(e, "witness-1-name")} of ${getFormValue(e, "witness-1-address")}, and ${getFormValue(e, "witness-2-name")} of ${getFormValue(e, "witness-2-address")}.
+Signed as a deed on ${getPrettyDate(e, "date")} as ${getFormValue(e, "old-name")} and ${getFormValue(e, "new-name")} in the presence of ${getFormValue(e, "witness-1-name")} of ${getFormValue(e, "witness-1-address")}, and ${getFormValue(e, "witness-2-name")} of ${getFormValue(e, "witness-2-address")}.
 
 [your new signature], [your old signature]
 
