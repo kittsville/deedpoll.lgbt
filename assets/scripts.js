@@ -22,11 +22,32 @@ document.getElementById('date').value = getCurrentDate();
 document.getElementById('user-info').addEventListener('submit', e => {
   e.preventDefault();
 
-  var doc = new jsPDF();
+  const pageCenter = 210/2;
 
-  deedPoll = getDeedPollText(e);
-  deedPollLinewrapped = doc.splitTextToSize(deedPoll, 180);
+  const doc = new jsPDF();
 
-  doc.text(deedPollLinewrapped, 10, 10);
+  doc.setFontSize(33);
+  doc.setFont('OldeEnglish');
+
+  const titleText = 'Deed of Change of Name';
+  doc.text(titleText, pageCenter, 30, 'center');
+  doc.setLineWidth(0.5);
+  const titleTextWidth = doc.getTextWidth(titleText);
+  doc.line(
+    pageCenter - (titleTextWidth / 2),
+    31,
+    pageCenter + (titleTextWidth / 2),
+    31
+  );
+
+  doc.setFont('LinLibertine_R');
+  doc.setFontSize(14);
+
+  doc.text(
+    getDeedPollText(e), 10, 55, {
+      maxWidth: '180'
+    }
+  );
+
   doc.save('a4.pdf');
 });
