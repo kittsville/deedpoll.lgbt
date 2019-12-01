@@ -10,18 +10,18 @@ getDateSuffix = day => {
   }
 }
 
-getDeedPollText = e => {
-  const oldName   = getFormValue(e, "old-name"),
-  newName         = getFormValue(e, "new-name"),
-  address         = getFormValue(e, "address"),
-  witness1Name    = getFormValue(e, "witness-1-name"),
-  witness1Address = getFormValue(e, "witness-1-address"),
-  witness2Name    = getFormValue(e, "witness-2-name"),
-  witness2Address = getFormValue(e, "witness-2-address");
-
+getDeedPollText = (
+    oldName,
+    newName,
+    address,
+    witness1Name,
+    witness1Address,
+    witness2Name,
+    witness2Address,
+    date
+  ) => {
   const months = ["January", "February", "March", "April", "May", "June", "July",
-  "August", "September", "October", "November", "December"];
-  date = new Date(getFormValue(e, "date")),
+  "August", "September", "October", "November", "December"],
   day = date.getDate(),
   month = months[date.getMonth()],
   year = date.getFullYear();
@@ -82,19 +82,38 @@ document.getElementById('user-info').addEventListener('submit', e => {
   doc.setFont('LinLibertine_R');
   doc.setFontSize(12);
 
-  doc.text(
-    getDeedPollText(e), 25.4, 55, {
+  const oldName   = getFormValue(e, "old-name"),
+  newName         = getFormValue(e, "new-name"),
+  address         = getFormValue(e, "address"),
+  witness1Name    = getFormValue(e, "witness-1-name"),
+  witness1Address = getFormValue(e, "witness-1-address"),
+  witness2Name    = getFormValue(e, "witness-2-name"),
+  witness2Address = getFormValue(e, "witness-2-address"),
+  date = new Date(getFormValue(e, "date"));
+
+  const deedPollText = getDeedPollText(
+    oldName,
+    newName,
+    address,
+    witness1Name,
+    witness1Address,
+    witness2Name,
+    witness2Address,
+    date
+  );
+
+  doc.text(deedPollText, 25.4, 55, {
       maxWidth: '159.2'
     }
   );
 
   doc.setLineWidth(0.4);
   doc.setFontSize(10);
-  drawSignatureBox(doc, 35, 200, ['by the above name', getFormValue(e, "new-name")]);
-  drawSignatureBox(doc, 120, 200, ['by the above name', getFormValue(e, "old-name")]);
+  drawSignatureBox(doc, 35, 200, ['by the above name', newName]);
+  drawSignatureBox(doc, 120, 200, ['by the above name', oldName]);
 
-  drawSignatureBox(doc, 35, 240, [getFormValue(e, "witness-1-name"), getFormValue(e, "witness-1-address")]);
-  drawSignatureBox(doc, 120, 240, [getFormValue(e, "witness-2-name"), getFormValue(e, "witness-2-address")]);
+  drawSignatureBox(doc, 35, 240, [witness1Name, witness1Address]);
+  drawSignatureBox(doc, 120, 240, [witness2Name, witness2Address]);
 
   doc.save('a4.pdf');
 });
