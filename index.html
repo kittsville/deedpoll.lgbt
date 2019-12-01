@@ -2,63 +2,105 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Deed Poll Generator</title>
+    <title>UK Deed Poll Generator</title>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+    <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
+
+    <link href="/assets/styles.css" rel="stylesheet">
   </head>
-  <body>
-    <h1>Deed Poll Creator</h1>
+  <body class="mdc-typography">
+    <h1 class="mdc-typography mdc-typography--headline1">UK Deed Poll Creator</h1>
 
     <span><em>This website is <a href="https://github.com/kittsville/deedpoll.lgbt">in beta</a> 🔥🔥🔥</em></span>
 
     <form id="user-info">
       <section>
-        <h2>Your details</h2>
+        <h2 class="mdc-typography mdc-typography--headline2">Your details</h2>
 
-        <label for="old-name">Old name:</label>
-        <input type="text" name="old-name" id="old-name" required>
+        <div class="mdc-text-field mdc-text-field--with-leading-icon">
+          <i class="material-icons mdc-text-field__icon">person</i>
+          <input type="text" id="old-name" class="mdc-text-field__input" required>
+          <label class="mdc-floating-label" for="old-name">Old Name</label>
+          <div class="mdc-line-ripple"></div>
+        </div>
 
-        <label for="new-name">New name:</label>
-        <input type="text" name="new-name" id="new-name" required>
+        <div class="mdc-text-field mdc-text-field--with-leading-icon">
+          <i class="material-icons mdc-text-field__icon">person</i>
+          <input type="text" id="new-name" class="mdc-text-field__input" required>
+          <label class="mdc-floating-label" for="new-name">New Name</label>
+          <div class="mdc-line-ripple"></div>
+        </div>
 
-        <label for="address">Address:</label>
-        <input type="text" name="address" id="address" required>
+        <div class="mdc-text-field mdc-text-field--with-leading-icon">
+          <i class="material-icons mdc-text-field__icon">person_pin</i>
+          <input type="text" id="address" class="mdc-text-field__input" required>
+          <label class="mdc-floating-label" for="address">Address</label>
+          <div class="mdc-line-ripple"></div>
+        </div>
       </section>
 
       <section>
-        <h2>Witness #1's details</h2>
+        <h2 class="mdc-typography mdc-typography--headline2">Witness #1's details</h2>
 
-        <label for="witness-1-name">Name:</label>
-        <input type="text" name="witness-1-name" id="witness-1-name" required>
+        <div class="mdc-text-field mdc-text-field--with-leading-icon">
+          <i class="material-icons mdc-text-field__icon">person_pin</i>
+          <input type="text" id="witness-1-name" class="mdc-text-field__input" required>
+          <label class="mdc-floating-label" for="witness-1-name">Name</label>
+          <div class="mdc-line-ripple"></div>
+        </div>
 
-        <label for="witness-1-address">Address:</label>
-        <input type="text" name="witness-1-address" id="witness-1-address" required>
+        <div class="mdc-text-field mdc-text-field--with-leading-icon">
+          <i class="material-icons mdc-text-field__icon">person_pin</i>
+          <input type="text" id="witness-1-address" class="mdc-text-field__input" required>
+          <label class="mdc-floating-label" for="witness-1-address">Address</label>
+          <div class="mdc-line-ripple"></div>
+        </div>
       </section>
 
       <section>
-        <h2>Witness #2's details</h2>
+        <h2 class="mdc-typography mdc-typography--headline2">Witness #2's details</h2>
 
-        <label for="witness-2-name">Name:</label>
-        <input type="text" name="witness-2-name" id="witness-2-name" required>
+        <div class="mdc-text-field mdc-text-field--with-leading-icon">
+          <i class="material-icons mdc-text-field__icon">person_pin</i>
+          <input type="text" id="witness-2-name" class="mdc-text-field__input" required>
+          <label class="mdc-floating-label" for="witness-2-name">Name</label>
+          <div class="mdc-line-ripple"></div>
+        </div>
 
-        <label for="witness-2-address">Address:</label>
-        <input type="text" name="witness-2-address" id="witness-2-address" required>
+        <div class="mdc-text-field mdc-text-field--with-leading-icon">
+          <i class="material-icons mdc-text-field__icon">person_pin</i>
+          <input type="text" id="witness-2-address" class="mdc-text-field__input" required>
+          <label class="mdc-floating-label" for="witness-2-address">Address</label>
+          <div class="mdc-line-ripple"></div>
+        </div>
       </section>
 
       <section>
-        <h2>Date</h2>
+        <h2 class="mdc-typography mdc-typography--headline2">Date</h2>
 
         <label for="date">Date you plan to sign the deed poll:</label>
         <input type="date" id="date" name="date" value="2019-10-05" min="2015-01-01" max="2511-05-07" required>
       </section>
 
-      <input type="submit" value="Create">
+      <section id="submit">
+        <button class="mdc-button mdc-button--raised" type="submit">
+          <div class="mdc-button__ripple"></div>
+          <i class="material-icons mdc-button__icon" aria-hidden="true">save</i>
+          <span class="mdc-button__label">Create PDF</span>
+        </button>
+      </section>
     </form>
 
     <div>
-      <script src="/assets/scripts.js" async></script>
+      <script src="/assets/material-components-web.min.js"></script>
 
       <script src="/assets/jspdf.min.js"></script>
       <script src="/assets/fonts/LinLibertine_R-normal.js"></script>
       <script src="/assets/fonts/OldeEnglish-normal.js"></script>
+
+      <script src="/assets/scripts.js"></script>
     </div>
   </body>
 </html>

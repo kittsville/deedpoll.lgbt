@@ -118,3 +118,6 @@ document.getElementById('user-info').addEventListener('submit', e => {
 
   doc.save('a4.pdf');
 });
+
+Array.from(document.getElementsByClassName('mdc-text-field')).forEach(mdc.textField.MDCTextField.attachTo);
+mdc.iconButton.MDCIconButtonToggle.attachTo(document.querySelector('button'));

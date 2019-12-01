@@ -1,0 +1,23 @@
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: .05rem;
+}
+
+.mdc-typography--headline2 {
+  font-size: 1.75rem;
+}
+
+.mdc-text-field__input:required ~ .mdc-floating-label::after {
+  content: none;
+}
+
+section#submit {
+  text-align: center;
+}
+
+section#submit button {
+  margin: 2rem 0;
+}
