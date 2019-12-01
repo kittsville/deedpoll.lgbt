@@ -26,14 +26,15 @@ getDeedPollText = (
   month = months[date.getMonth()],
   year = date.getFullYear();
 
-  return [
-    `By this deed of change of name made by myself the undersigned ${newName} of ${address} formerly known as ${oldName}.`,
-    'Hereby declare as follows:',
-    `I absolutely and entirely renounce, relinquish and abandon the use of my former name of ${oldName} and assume, adopt and determine to take and use from the date hereof the name of ${newName} in substitution for my former name of ${oldName}.`,
-    `I shall at all times hereafter in all records, deeds, documents and other writings and in all actions and proceedings, as well as in all dealings and transactions and on all occasions whatsoever use and subscribe the said name of ${newName} as my name, in substitution for my former name of ${oldName} so relinquished as aforesaid to the intent that I may hereafter be called, known or distinguished by the name of ${newName} only and not by my former name of ${oldName}.`,
-    `I authorise and require all persons at all times to designate, describe and address me by the adopted name of ${newName}.`,
-    `Dated this ${day}${getDateSuffix(day)} day of ${month} in the year ${year}.`
-  ];
+  return `
+    <p>By this deed of change of name made by myself the undersigned <strong>${newName}</strong> of ${address} formerly known as <strong>${oldName}</strong>.</p>
+    <p>Hereby declare as follows:</p>
+    <ol>
+      <li>I absolutely and entirely renounce, relinquish and abandon the use of my former name of ${oldName} and assume, adopt and determine to take and use from the date hereof the name of ${newName} in substitution for my former name of ${oldName}.</li>
+      <li>I shall at all times hereafter in all records, deeds, documents and other writings and in all actions and proceedings, as well as in all dealings and transactions and on all occasions whatsoever use and subscribe the said name of ${newName} as my name, in substitution for my former name of ${oldName} so relinquished as aforesaid to the intent that I may hereafter be called, known or distinguished by the name of ${newName} only and not by my former name of ${oldName}.</li>
+      <li>I authorise and require all persons at all times to designate, describe and address me by the adopted name of ${newName}.</li>
+    </ol>
+    <p>Dated this ${day}${getDateSuffix(day)} day of ${month} in the year ${year}.</p>`;
 }
 
 getCurrentDate = () => {
@@ -102,8 +103,8 @@ document.getElementById('user-info').addEventListener('submit', e => {
     date
   );
 
-  doc.text(deedPollText, 25.4, 55, {
-      maxWidth: '159.2'
+  doc.fromHTML(deedPollText, 25.4, 55, {
+      width: '159.2'
     }
   );
 
