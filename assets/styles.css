@@ -27,6 +27,10 @@ section#submit button {
   margin: 2rem 0;
 }
 
+main {
+  max-width: 1200px;
+}
+
 @font-face {
     font-family: 'Olde_English';
     src: url('fonts/Olde_English.woff2') format('woff2'),
