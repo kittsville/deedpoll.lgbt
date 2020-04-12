@@ -21,3 +21,86 @@ section#submit {
 section#submit button {
   margin: 2rem 0;
 }
+
+@font-face {
+    font-family: 'Olde_English';
+    src: url('fonts/Olde_English.woff2') format('woff2'),
+         url('fonts/Olde_English.woff') format('woff'),
+         url('fonts/Olde_English.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Linux_Libertine_R';
+    src: url('fonts/linlibertine_r.woff2') format('woff2'),
+         url('fonts/linlibertine_r.woff') format('woff'),
+         url('fonts/linlibertine_r.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@page {
+  size: A4;
+  margin: 0;
+}
+@media print {
+  html, body {
+    width: 210mm;
+    height: 297mm;
+  }
+
+  #back {
+    display: none;
+  }
+}
+
+#back {
+  position: fixed;
+  top: 20px;
+  left: calc(50% - 50px);
+}
+
+#printable-deed-poll {
+  width: 210mm;
+  height: 297mm;
+  margin: auto 0px;
+  font-family: 'Linux_Libertine_R';
+  font-size: 12pt;
+}
+
+#printable-deed-poll .print-margins {
+  margin: 25.4mm;
+  overflow: auto;
+}
+
+#printable-deed-poll li {
+    list-style-type: lower-roman;
+    font-weight: bold;
+}
+
+#printable-deed-poll li > p {
+    font-weight: normal;
+}
+
+#printable-deed-poll h1 {
+  font-family: 'Olde_English';
+  text-decoration: underline;
+  text-align: center;
+  font-size: 27pt;
+  font-weight: 200;
+  margin: 10mm auto;
+}
+
+#printable-deed-poll .signatures {
+  margin-top: 10mm;
+  overflow: auto;
+}
+
+#printable-deed-poll .signature {
+  border-top: 1px solid;
+  width: 60mm;
+  margin: 9mm;
+  text-align: center;
+  float: left;
+}
