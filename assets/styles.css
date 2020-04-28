@@ -31,6 +31,14 @@ main {
   max-width: 1200px;
 }
 
+footer a {
+  margin: .5rem;
+}
+
+footer a:not(:hover) {
+  color: grey;
+}
+
 @font-face {
     font-family: 'Olde_English';
     src: url('fonts/Olde_English.woff2') format('woff2'),
