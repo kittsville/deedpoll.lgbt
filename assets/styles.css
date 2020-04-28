@@ -39,6 +39,10 @@ footer a:not(:hover) {
   color: grey;
 }
 
+button.mdc-button {
+  text-transform: none;
+}
+
 @font-face {
     font-family: 'Olde_English';
     src: url('fonts/Olde_English.woff2') format('woff2'),
