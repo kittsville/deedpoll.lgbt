@@ -29,6 +29,7 @@ const onHashChange = () => {
     document.getElementById('data-entry').hidden = false;
     document.getElementById('printable-deed-poll').hidden = true;
   }
+  scroll(0,0);
 }
 
 const templateDeedPoll = (key, value) =>
