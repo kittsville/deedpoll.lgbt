@@ -71,7 +71,7 @@ button.mdc-button {
     height: 297mm;
   }
 
-  #back {
+  #back, footer {
     display: none;
   }
 }
