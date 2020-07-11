@@ -64,13 +64,13 @@ const generateDeedPoll = e => {
   templateDeedPoll('year', date.getFullYear());
 
   showDeedPoll();
-  window.print();
 }
 
 document.getElementById('date').value = getCurrentDate();
 document.getElementById('user-info').addEventListener('submit', generateDeedPoll);
 document.getElementById('back').addEventListener('click', showForm);
 document.getElementById('see-example').addEventListener('click', showDeedPoll);
+document.getElementById('print').addEventListener('click', () => window.print());
 window.addEventListener("hashchange", onHashChange);
 // Trigger hash change on page load in case user is already on #deedpoll
 onHashChange();

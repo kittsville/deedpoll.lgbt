@@ -19,11 +19,11 @@ body {
   content: none;
 }
 
-section#submit {
+section.action-buttons {
   text-align: center;
 }
 
-section#submit button {
+section.action-buttons button {
   margin: 2rem 0;
 }
 
@@ -71,15 +71,15 @@ button.mdc-button {
     height: 297mm;
   }
 
-  #back, footer {
+  #deed-poll-actions, footer {
     display: none;
   }
 }
 
-#back {
+#deed-poll-actions {
   position: fixed;
   top: 20px;
-  left: calc(50% - 50px);
+  left: calc(50% - 130px);
 }
 
 #printable-deed-poll {
