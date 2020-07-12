@@ -11,7 +11,7 @@ Free deed poll generator with pure JavaScript
   - `ruby -run -ehttpd . -p8000` if you have Ruby installed
   - Any of [these other methods](https://gist.github.com/willurd/5720255)
 
-## Contributing
+## Contributing/Bug Reports
 
 Contributions are always welcome. This could mean [requesting features](https://github.com/kittsville/deedpoll.lgbt/issues), [reporting bugs](https://github.com/kittsville/deedpoll.lgbt/issues) or creating pull requests.
 
