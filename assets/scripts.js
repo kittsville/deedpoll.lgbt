@@ -74,8 +74,3 @@ document.getElementById('print').addEventListener('click', () => window.print())
 window.addEventListener("hashchange", onHashChange);
 // Trigger hash change on page load in case user is already on #deedpoll
 onHashChange();
-
-// Initialises Material Design Components
-// See: https://github.com/material-components/material-components-web#javascript
-Array.from(document.getElementsByClassName('mdc-text-field')).forEach(mdc.textField.MDCTextField.attachTo);
-mdc.iconButton.MDCIconButtonToggle.attachTo(document.querySelector('button'));
