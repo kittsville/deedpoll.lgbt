@@ -18,7 +18,8 @@ const getMonth = month => {
   return months.find(monthNames => monthNames.find(name => name.toLowerCase() === month.toLowerCase()))[0];
 };
 
-const getFormValue = (e, fieldName) => e.srcElement.elements[fieldName].value;
+const getFormValue = (e, fieldName) => e.srcElement.elements[fieldName].value.trim();
+const isFormValueEmpty = (e, fieldName) => e.srcElement.elements[fieldName].value.trim() === '';
 
 const getDateSuffix = day => {
   if (day > 3 && day < 21) return 'th';
@@ -32,9 +33,9 @@ const getDateSuffix = day => {
 
 const getCurrentDate = () => {
   const date = new Date(),
-  month = (date.getMonth() + 1).toString().padStart(2, '0'),
-  day = date.getDate().toString().padStart(2, '0'),
-  year = date.getFullYear();
+    month = (date.getMonth() + 1).toString().padStart(2, '0'),
+    day = date.getDate().toString().padStart(2, '0'),
+    year = date.getFullYear();
 
   return [year, month, day];
 };
@@ -57,8 +58,31 @@ const onHashChange = () => {
 const templateDeedPoll = (key, value) =>
   document.querySelectorAll(`[data-source=${key}]`).forEach(element => element.textContent = value);
 
+const showFormErrors = errors => {
+  errors.forEach(error => {
+    error.element.classList.add('govuk-input--error');
+    error.element.closest('.govuk-form-group').classList.add('govuk-form-group--error');
+    error.element.insertAdjacentHTML('beforebegin', `<p id="${error.field}-error" class="govuk-error-message">
+      <span class="govuk-visually-hidden">Error:</span> ${error.message}
+    </p>`);
+  });
+
+  errors[0].element.focus();
+}
+
+const stripClassFromElements = className => {
+  document.querySelectorAll(`.${className}`).forEach(element => element.classList.remove(className));
+}
+
+const removeFormErrors = () => {
+  stripClassFromElements('govuk-input--error');
+  stripClassFromElements('govuk-form-group--error');
+  document.querySelectorAll('.govuk-error-message').forEach(element => element.remove());
+};
+
 const generateDeedPoll = e => {
   e.preventDefault();
+  removeFormErrors();
 
   const formKeys = [
     'old-name',
@@ -69,6 +93,22 @@ const generateDeedPoll = e => {
     'witness-2-name',
     'witness-2-address'
   ];
+
+  const missingFields = formKeys.filter(key => isFormValueEmpty(e, key));
+
+  if (missingFields.length > 0) {
+    const errors = missingFields.map(key => {
+      const element = document.getElementById(key);
+      message = `Enter ${element.getAttribute("data-description")}`;
+      return {
+        element,
+        message
+      }
+    });
+
+    showFormErrors(errors);
+    return;
+  }
 
   formKeys.forEach(key => {
     const value = getFormValue(e, key);
