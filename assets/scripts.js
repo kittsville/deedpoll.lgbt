@@ -33,8 +33,8 @@ const getDateSuffix = day => {
 
 const getCurrentDate = () => {
   const date = new Date(),
-    month = (date.getMonth() + 1).toString().padStart(2, '0'),
-    day = date.getDate().toString().padStart(2, '0'),
+    month = (date.getMonth() + 1),
+    day = date.getDate(),
     year = date.getFullYear();
 
   return [year, month, day];
