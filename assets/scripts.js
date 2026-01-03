@@ -44,13 +44,9 @@ const showForm = () => location.hash = '';
 const showDeedPoll = () => location.hash = 'deedpoll';
 const onHashChange = () => {
   if (location.hash === '#deedpoll') {
-    document.getElementById('data-entry').hidden = true;
-    document.getElementById('footer').hidden = true;
-    document.getElementById('printable-deed-poll').hidden = false;
+    document.body.classList.add("deed-poll-mode");
   } else {
-    document.getElementById('data-entry').hidden = false;
-    document.getElementById('footer').hidden = false;
-    document.getElementById('printable-deed-poll').hidden = true;
+    document.body.classList.remove("deed-poll-mode");
   }
   scroll(0,0);
 }
@@ -134,6 +130,10 @@ document.getElementById('user-info').addEventListener('submit', generateDeedPoll
 document.getElementById('back').addEventListener('click', showForm);
 document.getElementById('see-example').addEventListener('click', showDeedPoll);
 document.getElementById('print').addEventListener('click', () => window.print());
+document.getElementById('save-as-pdf').addEventListener('click', () => {
+  alert('Use the Print dialogue and set destination to "Save as PDF"');
+  window.print();
+});
 window.addEventListener("hashchange", onHashChange);
 // Trigger hash change on page load in case user is already on #deedpoll
 onHashChange();

@@ -16,6 +16,22 @@
     font-style: normal;
 }
 
+body:not(.deed-poll-mode) #printable-deed-poll {
+  display: None;
+}
+
+body.deed-poll-mode {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0;
+}
+
+body.deed-poll-mode #data-entry, body.deed-poll-mode footer {
+  display: None;
+}
+
 @page {
   size: A4;
   margin: 0;
@@ -23,7 +39,8 @@
 @media print {
   html, body {
     width: 210mm;
-    height: 297mm;
+    height: 287mm;
+    margin-top: 0;
   }
 
   #deed-poll-actions, footer {
@@ -31,15 +48,19 @@
   }
 }
 
+html.govuk-template {
+  background-color: #fff;
+}
+
 #deed-poll-actions {
   position: fixed;
   top: 20px;
-  left: calc(50% - 130px);
+  left: calc(50% - 175px);
 }
 
 #printable-deed-poll {
   width: 210mm;
-  height: 297mm;
+  height: 287mm;
   margin: auto 0px;
   font-family: 'Linux_Libertine_R', Times, 'Times New Roman', serif;
   font-size: 12pt;
