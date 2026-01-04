@@ -1,6 +1,6 @@
 # deedpoll.lgbt
 
-Free deed poll generator with pure JavaScript
+Free deed poll generator with pure JavaScript.
 
 ## Local setup
 
@@ -18,3 +18,5 @@ Contributions are always welcome. This could mean [requesting features](https://
 If you don't have or want a GitHub account, you could drop me a line via Twitter ([@kittsville](https://twitter.com/kittsville)) or email (kittsville@gmail.com).
 
 Please bear in mind there is a [Code of Conduct](CODE_OF_CONDUCT.md) which defines acceptable behavior.
+
+This site uses the [GOV.UK Design System](https://design-system.service.gov.uk/) because I swear you can't go on a date with a chick without her promoting this framework. It's happened multiple times
