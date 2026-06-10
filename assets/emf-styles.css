@@ -1,0 +1,14 @@
+.underlined {
+    text-decoration: underline;
+  }
+  
+.large-typing-block {
+  width: 20rem;
+  display: inline-block;
+  border-bottom: solid black 0.2mm;
+  height: 2em;
+}
+
+#deed-date {
+  margin-top: 7mm;
+}
