@@ -16,3 +16,8 @@
 #printable-deed-poll .signature {
   border-top: solid black 0.2mm;
 }
+
+img#rrdps {
+  width: 10em;
+  float: right;
+}
