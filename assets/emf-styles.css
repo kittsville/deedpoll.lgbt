@@ -1,5 +1,5 @@
 .underlined {
-    text-decoration: underline;
+    border-bottom: solid black 0.2mm;
   }
   
 .large-typing-block {
@@ -11,4 +11,8 @@
 
 #deed-date {
   margin-top: 7mm;
+}
+
+#printable-deed-poll .signature {
+  border-top: solid black 0.2mm;
 }
